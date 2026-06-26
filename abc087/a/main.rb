@@ -1,6 +1,2 @@
-X = gets.to_i
-A = gets.to_i
-B = gets.to_i
-
-puts (X-A) % B
-
+x, a, b = STDIN.read.split.map(&:to_i)
+puts (x - a) % b
