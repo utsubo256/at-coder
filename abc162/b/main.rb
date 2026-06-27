@@ -1,9 +1,6 @@
 N = gets.to_i
-
-target_numbers = []
+sum = 0
 (1..N).each do |num|
-  target_numbers << num unless num % 5 == 0 || num % 3 == 0
+  sum += num unless num % 3 == 0 || num % 5 == 0
 end
-
-puts target_numbers.sum
-
+puts sum
