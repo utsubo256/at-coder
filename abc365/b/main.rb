@@ -1,7 +1,14 @@
 n = gets.to_i
 a = gets.split.map(&:to_i)
-a_without_max_value = a.reject { |num| num == a.max }
-second_biggest_value = a_without_max_value.max
 
-puts a.find_index(second_biggest_value) + 1
-
+max_index = 0
+second_index = -1
+(1..(n-1)).each do |index|
+  if a[max_index] < a[index]
+    second_index = max_index
+    max_index = index
+  elsif second_index == -1 || a[second_index] < a[index]
+    second_index = index
+  end
+end
+puts second_index + 1
