@@ -1,14 +1,12 @@
 #include <stdio.h>
 
 int main(void) {
-  int n, days = 0, bank = 0;
+  int n, days = 0, total = 0;
   scanf("%d", &n);
-  while (1) {
-    if (bank >= n) {
-      printf("%d\n", days);
-      return 0;
-    }
+  while (total < n) {
     days++;
-    bank += days;
+    total += days;
   }
+  printf("%d\n", days);
+  return 0;
 }
