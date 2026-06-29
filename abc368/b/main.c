@@ -1,35 +1,26 @@
 #include <stdio.h>
 
-void sort_desc(int a[], int n) {
-  for (int i = 1; i < n; i++) {
-    int key = a[i];
-    int j = i - 1;
-
-    while (j >= 0 && a[j] < key) {
-      a[j + 1] = a[j];
-      j--;
-    }
-
-    a[j + 1] = key;
-  }
-}
-
 int main(void) {
   int n;
   scanf("%d", &n);
-  int a[n], x, count = 0;
+
+  int sum = 0;
+  int max = 0;
   for (int i = 0; i < n; i++) {
-    scanf("%d", &x);
-    a[i] = x;
+    int a;
+    scanf("%d", &a);
+
+    sum += a;
+    if (a > max) {
+      max = a;
+    }
   }
 
-  sort_desc(a, n);
-  while (a[0] > 0 && a[1] > 0) {
-    a[0]--;
-    a[1]--;
-    sort_desc(a, n);
-    count++;
+  int answer = sum / 2;
+  if (sum - max < answer) {
+    answer = sum - max;
   }
-  printf("%d\n", count);
+
+  printf("%d\n", answer);
   return 0;
 }
