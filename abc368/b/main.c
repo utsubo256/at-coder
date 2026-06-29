@@ -1,18 +1,16 @@
 #include <stdio.h>
 
 void sort_desc(int a[], int n) {
-  for (int i = 0; i < n; i++) {
-    int max_index = i;
+  for (int i = 1; i < n; i++) {
+    int key = a[i];
+    int j = i - 1;
 
-    for (int j = i + 1; j < n; j++) {
-      if (a[j] > a[max_index]) {
-        max_index = j;
-      }
+    while (j >= 0 && a[j] < key) {
+      a[j + 1] = a[j];
+      j--;
     }
 
-    int tmp = a[i];
-    a[i] = a[max_index];
-    a[max_index] = tmp;
+    a[j + 1] = key;
   }
 }
 
